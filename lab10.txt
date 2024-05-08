@@ -1,0 +1,130 @@
+#include <iostream>
+#include <string>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+struct Car {
+    string model;
+    int year;
+    double price;
+    string color;
+    int horsepower;
+};
+
+int main() {
+    const int arraySize = 10;
+    Car cars[arraySize];
+    char yn_box = ' ';
+
+    for (int i = 0; i < arraySize; ++i) {
+        cout << "Element #" << i + 1 << ": Lazy mode? y/n" << endl;
+        cin >> yn_box;
+        cin.ignore(); 
+        if (i == 9){
+            cout << "Model: ";
+            cars[i].model = "YourPerfectCar";
+            cout << cars[i].model << endl;
+            
+            cout << "Year: ";
+            cars[i].year = 2003;
+            cout << cars[i].year << endl;
+            
+            cout << "Price: ";
+            cars[i].price = 30000;
+            cout << cars[i].price << endl;
+            
+            cout << "Color: ";
+            cars[i].color = "red";
+            cout << cars[i].color << endl;
+            
+            cout << "Engine power: ";
+            cars[i].horsepower = 32;
+            cout << cars[i].horsepower << "\n\n"<< endl;
+        }
+        
+
+        if (yn_box == 'y'&& i != 9) { 
+            
+            const string syllables[] = {"mi", "li", "fe", "re", "to", "no"};
+            const int syllableCount = 6;
+            string word;
+
+            srand(time(NULL));
+
+            int firstIndex = rand() % syllableCount;
+            word += syllables[firstIndex];
+
+            int secondIndex = rand() % (syllableCount - 1);
+            if (secondIndex >= firstIndex) {
+            secondIndex++; }
+    
+            word += syllables[secondIndex];
+            cout << "Model: ";
+            cars[i].model = word;
+            cout << cars[i].model << endl;
+    
+            
+            cout << "Year: ";
+            srand(time(NULL));
+            int randomNumber = rand() % 140 + 1885;
+            cars[i].year = randomNumber;
+            cout << cars[i].year << endl;
+            
+            cout << "Price: ";
+            srand(time(NULL));
+            int randomNumber1 = rand() % 90001 + 10000;
+            cars[i].price = randomNumber1;
+            cout << cars[i].price << endl;
+            
+            cout << "Color: ";
+            const string colors[] = {"red", "pink", "white"};
+            const int colorsCount = 3;
+            string color;
+
+            srand(time(NULL));
+
+            int colorIndex = rand() % colorsCount;
+            color += colors[colorIndex];
+            cars[i].color = color;
+            cout << cars[i].color << endl;
+            
+            
+            cout << "Engine power: ";
+            srand(time(NULL));
+            int randomNumber2 = rand() % 61 + 20;
+            cars[i].horsepower = randomNumber2;
+            cout << cars[i].horsepower << endl;
+        }
+        else if (yn_box == 'n') {
+            cout << "Model: ";
+            getline(cin, cars[i].model);
+            cout << "Year of production: ";
+            cin >> cars[i].year;
+            cout << "Price: ";
+            cin >> cars[i].price;
+            cout << "Color: ";
+            cin.ignore();
+            getline(cin, cars[i].color);
+            cout << "Engine power: ";
+            cin >> cars[i].horsepower;
+            cin.ignore();
+            cout << endl;
+        }
+    }
+
+    cout << "Cars that meet the conditions:" << endl;
+    for (int i = 0; i < arraySize; ++i) {
+        if (cars[i].color == "red" && cars[i].year > 2002 && cars[i].price < 50000) {
+            cout << "Model: " << cars[i].model << endl;
+            cout << "Year of production: " << cars[i].year << endl;
+            cout << "Price: " << cars[i].price << " UAH" << endl;
+            cout << "Color: " << cars[i].color << endl;
+            cout << "Engine power: " << cars[i].horsepower << " hp" << endl;
+            cout << endl;
+        }
+    }
+
+    return 0;
+}

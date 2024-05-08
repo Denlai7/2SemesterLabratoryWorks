@@ -1,0 +1,20 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    string fullName;
+
+    cout << "Введіть своє повне ім'я: ";
+    getline(cin, fullName);
+
+    string firstName = fullName.substr(0, fullName.find(" "));
+    string fathersName = fullName.substr(fullName.rfind(" ") + 1);
+    int length = fathersName.length();
+
+    cout << "Ім'я: " << firstName << endl;
+    cout << "Кількість букв у третьому слові: " << length << endl;
+
+    return 0;
+}

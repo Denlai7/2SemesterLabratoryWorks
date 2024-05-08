@@ -1,0 +1,31 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+vector<char> mergeArrays(const vector<char>& arr1, const vector<char>& arr2) {
+    vector<char> mergedArray;
+    int i = 0, j = 0;
+
+    while (i < arr1.size() && j < arr2.size()) {
+        if (arr1[i] < arr2[j]) mergedArray.push_back(arr1[i++]);
+        else mergedArray.push_back(arr2[j++]);
+    }
+
+    while (i < arr1.size()) mergedArray.push_back(arr1[i++]);
+    while (j < arr2.size()) mergedArray.push_back(arr2[j++]);
+
+    return mergedArray;
+}
+
+int main() {
+    vector<char> array1 = {'a', 'c', 'e', 'g'};
+    vector<char> array2 = {'b', 'd', 'f', 'h'};
+
+    vector<char> mergedArray = mergeArrays(array1, array2);
+
+    cout << "Merged Array: ";
+    for (char ch : mergedArray) cout << ch << " ";
+    cout << endl;
+
+    return 0;
+}
