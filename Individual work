@@ -1,0 +1,37 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string stomach_pain, bloating, diarrhea;
+
+    cout << "Do you have stomach pain? (yes/no): ";
+    cin >> stomach_pain;
+
+    cout << "Do you feel bloated? (yes/no): ";
+    cin >> bloating;
+
+    cout << "Do you have diarrhea? (yes/no): ";
+    cin >> diarrhea;
+
+    if (stomach_pain == "yes") {
+        cout << "You may take pancreatin medication for relief.\n";
+    } else {
+        cout << "That's good to hear. If you experience stomach pain later, consider taking pancreatin medication.\n";
+    }
+
+    if (bloating == "yes") {
+        cout << "You may try avoiding gas-producing foods like beans, cabbage, and carbonated drinks.\n";
+    } else {
+        cout << "That's good to hear. If you feel bloated later, consider avoiding gas-producing foods.\n";
+    }
+
+    if (diarrhea == "yes") {
+        cout << "You may try eating bland foods like bananas, rice, applesauce, and toast.\n";
+    } else {
+        cout << "That's good to hear. If you have diarrhea later, consider eating bland foods.\n";
+    }
+
+    return 0;
+}
+
